@@ -13,7 +13,7 @@ RUN apk update && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     pip3 install --upgrade pip wheel && \
-    rm -r /root/.cache && \
+    rm -rf /root/.cache && \
     pip3 install -r requirements.txt && \
     wget https://raw.githubusercontent.com/celery/celery/master/extra/generic-init.d/celeryd -O /etc/init.d/celeryd && \
     chmod +x /etc/init.d/celeryd && ln -s /etc/init.d/celeryd /usr/bin/celeryd
